@@ -14,18 +14,19 @@ const ITEMS_PER_PAGE = 10;
 
 const PortfolioPage: React.FC = () => {
   const { items, loading } = useGallery();
-  const [category, setCategory] = useState<GalleryCategory | "all">("all");
+  const [selectedCategories, setSelectedCategories] = useState<GalleryCategory[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [page, setPage] = useState(1);
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
 
   const filtered = useMemo(() => {
     return items.filter((item) => {
-      const matchCategory = category === "all" || item.category === category;
+      const matchCategory =
+        selectedCategories.length === 0 || selectedCategories.includes(item.category);
       const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
       return matchCategory && matchSearch;
     });
-  }, [items, category, searchQuery]);
+  }, [items, selectedCategories, searchQuery]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
   const safePage = Math.min(page, totalPages);
@@ -34,8 +35,14 @@ const PortfolioPage: React.FC = () => {
     safePage * ITEMS_PER_PAGE,
   );
 
-  const handleCategoryChange = (cat: GalleryCategory | "all") => {
-    setCategory(cat);
+  const handleCategoryToggle = (cat: GalleryCategory | "all") => {
+    if (cat === "all") {
+      setSelectedCategories([]);
+    } else {
+      setSelectedCategories((prev) =>
+        prev.includes(cat) ? prev.filter((c) => c !== cat) : [...prev, cat],
+      );
+    }
     setPage(1);
   };
 
@@ -71,7 +78,7 @@ const PortfolioPage: React.FC = () => {
         <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-brand-gold transition-all duration-700 ease-out group-focus-within:w-full" />
       </div>
 
-      <CategoryFilter active={category} onSelect={handleCategoryChange} />
+      <CategoryFilter selected={selectedCategories} onToggle={handleCategoryToggle} />
 
       {loading ? (
         <div className="text-center py-20 text-brand-gray">Loading gallery...</div>

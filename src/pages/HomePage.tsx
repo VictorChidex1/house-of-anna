@@ -3,6 +3,7 @@ import FeaturedWorks from "../components/sections/FeaturedWorks";
 import ServicesSection from "../components/sections/ServicesSection";
 import SummarySection from "../components/sections/SummarySection";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
+import FAQsSection from "../components/sections/FAQsSection";
 
 const HomePage: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage: React.FC = () => {
       <ServicesSection />
       <SummarySection />
       <TestimonialsSection />
+      <FAQsSection />
     </div>
   );
 };
