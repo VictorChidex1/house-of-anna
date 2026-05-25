@@ -4,19 +4,19 @@ import GoldDivider from "../ui/GoldDivider";
 
 const FEATURED = [
   {
-    title: "Gold Silk Gown",
-    category: "Silk",
-    image: "/assets/hero-image.webp",
-  },
-  {
-    title: "Navy Crepe Ensemble",
+    title: "The 'Moremi' Crimson Blazer Set",
     category: "Crepe",
-    image: "/assets/hero-image.webp",
+    image: "/assets/portfolio1.jpg",
   },
   {
-    title: "Ankara Cocktail Dress",
+    title: "The 'Oyin' Sculpted Asymmetric Dress",
+    category: "Silk",
+    image: "/assets/portfolio2.jpg",
+  },
+  {
+    title: "The 'Amara' Geometric Wrap Set",
     category: "Ankara",
-    image: "/assets/hero-image.webp",
+    image: "/assets/portfolio3.jpg",
   },
 ];
 
@@ -30,7 +30,9 @@ const FeaturedWorks: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="text-center mb-14"
       >
-        <p className="text-brand-gold tracking-[0.25em] uppercase text-xs mb-3">Featured Works</p>
+        <p className="text-brand-gold tracking-[0.25em] uppercase text-xs mb-3">
+          Featured Works
+        </p>
         <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark mb-4">
           Recent Masterpieces
         </h2>
