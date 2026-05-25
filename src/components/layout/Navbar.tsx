@@ -19,9 +19,13 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link
             to="/"
-            className="font-serif text-xl sm:text-2xl tracking-wide text-brand-dark"
+            className="shrink-0 flex items-center px-3 py-1.5 rounded shadow-sm"
           >
-            House of <span className="text-brand-gold">Anna</span>
+            <img
+              src="/assets/logo.webp"
+              alt="House of Anna"
+              className="h-16 sm:h-24 w-auto"
+            />
           </Link>
 
           <button
@@ -30,11 +34,24 @@ const Navbar: React.FC = () => {
             onClick={() => setOpen(!open)}
             aria-label="Toggle navigation"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               {open ? (
-                <path strokeLinecap="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
