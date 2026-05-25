@@ -3,9 +3,7 @@ export type GalleryCategory =
   | "vintage"
   | "silk"
   | "ankara"
-  | "high-target"
-  | "medium-target"
-  | "small-ankara";
+  | "corporate";
 
 export type InquiryStatus = "new" | "contacted" | "booked";
 

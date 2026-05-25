@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
+import { FaChevronUp } from "react-icons/fa";
 import { useScrollY } from "../../hooks/useScrollY";
 
 const ScrollToTop: React.FC = () => {
@@ -20,9 +21,7 @@ const ScrollToTop: React.FC = () => {
           aria-label="Scroll to top"
           className="fixed bottom-6 right-6 z-50 p-3 bg-brand-navy text-white rounded-full shadow-lg hover:bg-brand-gold hover:text-brand-navy transition-colors"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-          </svg>
+          <FaChevronUp className="w-4 h-4" />
         </motion.button>
       )}
     </AnimatePresence>

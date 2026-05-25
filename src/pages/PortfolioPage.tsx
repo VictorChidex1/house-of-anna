@@ -1,7 +1,44 @@
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { FaSearch } from "react-icons/fa";
+import type { GalleryCategory } from "../types";
+import type { GalleryItem } from "../types";
+import { useGallery } from "../hooks/useGallery";
 import GoldDivider from "../components/ui/GoldDivider";
+import CategoryFilter from "../components/gallery/CategoryFilter";
+import GalleryGrid from "../components/gallery/GalleryGrid";
+import ImageLightbox from "../components/gallery/ImageLightbox";
+import Pagination from "../components/gallery/Pagination";
+
+const ITEMS_PER_PAGE = 10;
 
 const PortfolioPage: React.FC = () => {
+  const { items, loading } = useGallery();
+  const [category, setCategory] = useState<GalleryCategory | "all">("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [page, setPage] = useState(1);
+  const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
+
+  const filtered = useMemo(() => {
+    return items.filter((item) => {
+      const matchCategory = category === "all" || item.category === category;
+      const matchSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchCategory && matchSearch;
+    });
+  }, [items, category, searchQuery]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+  const safePage = Math.min(page, totalPages);
+  const paginated = filtered.slice(
+    (safePage - 1) * ITEMS_PER_PAGE,
+    safePage * ITEMS_PER_PAGE,
+  );
+
+  const handleCategoryChange = (cat: GalleryCategory | "all") => {
+    setCategory(cat);
+    setPage(1);
+  };
+
   return (
     <div className="min-h-screen py-16 px-4 max-w-7xl mx-auto">
       <motion.div
@@ -17,9 +54,39 @@ const PortfolioPage: React.FC = () => {
         </p>
       </motion.div>
 
-      <div className="text-center py-20 text-brand-gray">
-        <p>Gallery grid coming soon — Step 6.</p>
+      {/* Search */}
+      <div className="relative max-w-md mx-auto mb-12 group">
+        <FaSearch className="absolute left-0 top-1/2 -translate-y-1/2 text-brand-gold/40 w-4 h-4 group-focus-within:text-brand-gold transition-colors duration-500" />
+        <input
+          type="text"
+          placeholder="Search collections..."
+          value={searchQuery}
+          onChange={(e) => {
+            setSearchQuery(e.target.value);
+            setPage(1);
+          }}
+          className="w-full pl-8 pr-4 py-3 bg-transparent border-b border-brand-gold/20 text-brand-dark font-serif italic text-lg placeholder:text-brand-gray/40 focus:outline-none transition-all duration-500"
+        />
+        {/* Animated bottom line */}
+        <div className="absolute bottom-0 left-0 h-[1px] w-0 bg-brand-gold transition-all duration-700 ease-out group-focus-within:w-full" />
       </div>
+
+      <CategoryFilter active={category} onSelect={handleCategoryChange} />
+
+      {loading ? (
+        <div className="text-center py-20 text-brand-gray">Loading gallery...</div>
+      ) : (
+        <>
+          <GalleryGrid items={paginated} onImageClick={setLightboxItem} />
+          <Pagination
+            currentPage={safePage}
+            totalPages={totalPages}
+            onPageChange={setPage}
+          />
+        </>
+      )}
+
+      <ImageLightbox item={lightboxItem} onClose={() => setLightboxItem(null)} />
     </div>
   );
 };
