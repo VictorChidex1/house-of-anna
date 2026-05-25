@@ -1,24 +1,28 @@
 import React from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Link } from "react-router-dom";
 import GoldDivider from "../ui/GoldDivider";
 
 const SERVICES = [
   {
     title: "Bespoke Gowns",
-    description: "Evening, bridal, and occasion wear tailored to your exact measurements and vision.",
+    description:
+      "Evening, bridal, and occasion wear tailored to your exact measurements and vision.",
   },
   {
     title: "Corporate Wear",
-    description: "Professional, structured attire designed to make a powerful statement in the modern workplace.",
+    description:
+      "Professional, structured attire designed to make a powerful statement in the modern workplace.",
   },
   {
     title: "Traditional & Ankara",
-    description: "Modern, sophisticated takes on African-inspired fashion that celebrate culture and elegance.",
+    description:
+      "Modern, sophisticated takes on African-inspired fashion that celebrate culture and elegance.",
   },
   {
     title: "Alterations",
-    description: "Expert resizing and restyling of existing garments to breathe new life into your wardrobe.",
+    description:
+      "Expert resizing and restyling of existing garments to breathe new life into your wardrobe.",
   },
 ];
 
