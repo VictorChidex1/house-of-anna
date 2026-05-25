@@ -1,0 +1,61 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ─── HELPERS ──────────────────────────────────────
+    function isAdmin() {
+      return request.auth != null;
+    }
+
+    function validGalleryDoc() {
+      let d = request.resource.data;
+      return d.keys().hasAll(['imageUrl', 'thumbnailUrl', 'category', 'title', 'featured', 'createdAt'])
+        && d.imageUrl is string
+        && d.thumbnailUrl is string
+        && d.title is string && d.title.size() > 0
+        && d.category in ['crepe', 'vintage', 'silk', 'ankara', 'corporate']
+        && d.featured is bool
+        && d.createdAt == request.time
+        && (!d.keys().hasAny(['description']) || d.description is string);
+    }
+
+    function validInquiryDoc() {
+      let d = request.resource.data;
+      return d.keys().hasAll(['name', 'email', 'serviceType', 'budgetRange', 'message', 'status', 'createdAt'])
+        && d.name is string && d.name.size() > 0 && d.name.size() <= 100
+        && d.email is string && d.email.size() > 0 && d.email.matches('^[^@]+@[^@]+\\.[^@]+$')
+        && (!d.keys().hasAny(['phone']) || (d.phone is string && d.phone.size() <= 30))
+        && d.serviceType is string && d.serviceType.size() > 0 && d.serviceType.size() <= 100
+        && d.budgetRange is string && d.budgetRange.size() > 0
+        && d.message is string && d.message.size() > 0 && d.message.size() <= 2000
+        && d.status == 'new'
+        && d.createdAt == request.time;
+    }
+
+    // ─── GALLERY ──────────────────────────────────────
+    // Public read, admin write.
+    match /gallery/{docId} {
+      allow read: if true;
+      allow create: if isAdmin() && validGalleryDoc();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ─── INQUIRIES ────────────────────────────────────
+    // Public create (validated). Admin read/update. No delete.
+    match /inquiries/{docId} {
+      allow create: if validInquiryDoc();
+      allow read, update: if isAdmin();
+      allow delete: if false;
+    }
+
+    // ─── SETTINGS ─────────────────────────────────────
+    // Public read. Admin write. No delete.
+    match /settings/{docId} {
+      allow read: if true;
+      allow create, update: if isAdmin();
+      allow delete: if false;
+    }
+  }
+}
