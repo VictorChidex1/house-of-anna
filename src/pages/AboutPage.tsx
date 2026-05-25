@@ -73,14 +73,14 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="lg:col-span-7 lg:pl-10 relative mt-12 lg:mt-0"
           >
-            {/* Floating Quote (Desktop Only) */}
-            <div className="hidden lg:block absolute -left-28 -top-12 z-20 w-72 bg-white p-8 shadow-xl border-l-4 border-brand-gold">
-              <p className="font-serif italic text-brand-dark text-xl leading-snug">
+            {/* Integrated Intro Quote */}
+            <blockquote className="mb-10 lg:mb-16 border-l-4 border-brand-gold pl-6 sm:pl-8">
+              <p className="font-serif italic text-brand-dark text-2xl sm:text-3xl leading-snug">
                 "Clothing is more than fabric; it's identity, confidence, and art."
               </p>
-            </div>
+            </blockquote>
 
-            <div className="space-y-6 text-brand-gray leading-relaxed text-base sm:text-lg font-light relative z-10 lg:mt-16">
+            <div className="space-y-6 text-brand-gray leading-relaxed text-base sm:text-lg font-light relative z-10">
               <p className="first-letter:text-7xl first-letter:font-serif first-letter:text-brand-gold first-letter:float-left first-letter:mr-4 first-letter:mt-2 first-letter:leading-[0.8] first-line:uppercase first-line:tracking-widest">
                 House of Anna was born from a profound passion for fabric, form, and the transformative power of a perfectly fitted garment. With years of experience in bespoke tailoring, Anna Peter has dressed clients for weddings, galas, corporate events, and everyday elegance.
               </p>

@@ -123,14 +123,6 @@ const Footer: React.FC = () => {
                 Instagram
               </a>
               <a
-                href="https://pinterest.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white hover:translate-x-1 transition-all duration-300 w-fit"
-              >
-                Pinterest
-              </a>
-              <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
