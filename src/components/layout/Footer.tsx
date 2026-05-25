@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
             <h4 className="font-serif text-lg text-brand-gold mb-6">Connect</h4>
             <div className="space-y-4 flex flex-col text-sm text-white/60">
               <a
-                href="https://wa.me/2348000000000"
+                href="https://wa.me/2347066659660"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white hover:translate-x-1 transition-all duration-300 w-fit"
