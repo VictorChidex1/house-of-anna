@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ScrollToTop from "../ui/ScrollToTop";
+import WhatsAppButton from "../ui/WhatsAppButton";
 
 const AppLayout: React.FC = () => {
   return (
@@ -12,6 +13,7 @@ const AppLayout: React.FC = () => {
       </main>
       <Footer />
       <ScrollToTop />
+      <WhatsAppButton />
     </>
   );
 };
