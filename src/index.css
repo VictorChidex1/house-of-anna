@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-cream text-brand-dark font-sans antialiased;
+    margin: 0;
+  }
+
+  #root {
+    @apply min-h-svh flex flex-col;
+  }
+
+  ::selection {
+    @apply bg-brand-gold/20 text-brand-dark;
+  }
+}
