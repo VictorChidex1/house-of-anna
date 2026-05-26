@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
                 WhatsApp
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/house_of_anna_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white hover:translate-x-1 transition-all duration-300 w-fit"
