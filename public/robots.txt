@@ -1,0 +1,11 @@
+# House of Anna — robots.txt
+# https://house-of-anna.vercel.app
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://house-of-anna.vercel.app/sitemap.xml

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion, type Variants } from "framer-motion";
 import GoldDivider from "../components/ui/GoldDivider";
+import PageSeo from "../components/seo/PageSeo";
 
 const SERVICES = [
   {
@@ -91,6 +92,13 @@ const cardVariants: Variants = {
 const ServicesPage: React.FC = () => {
   return (
     <div className="min-h-screen">
+      <PageSeo
+        title="Services — House of Anna"
+        description="From bespoke bridal gowns to corporate wear and traditional couture. Explore our full range of tailoring and fashion design services."
+        path="/services"
+        image="/assets/portfolio1.jpg"
+        jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://house-of-anna.vercel.app/" }, { "@type": "ListItem", position: 2, name: "Services", item: "https://house-of-anna.vercel.app/services" }] }}
+      />
       {/* ───── Cinematic Hero Parallax ───── */}
       <section className="relative py-32 sm:py-48 bg-brand-navy overflow-hidden bg-[url('/assets/hero-image.webp')] bg-cover bg-center bg-fixed bg-no-repeat">
         <div className="absolute inset-0 bg-brand-navy/85" />

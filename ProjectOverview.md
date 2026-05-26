@@ -145,8 +145,15 @@ All styling must adhere strictly to the House of Anna brand identity using Tailw
 
 ## 7. Folder Structure
 
+public/
+├── assets/
+│ ├── logo.svg
+│ ├── favicon.ico
+│ ├── hero-bg.jpg
+│ └── anna-headshot.jpg
+└── ...
+
 src/
-├── assets/ # Logo, brand assets, favicon
 ├── components/
 │ ├── ui/ # Button, Input, Modal, Spinner, GoldDivider
 │ ├── layout/ # Navbar, Footer, AppLayout
@@ -177,6 +184,7 @@ _AI: Await developer's command before proceeding to next step._
 - **Step 8:** Build Contact page + inquiry form + WhatsApp integration
 - **Step 9:** Build Admin auth + Admin dashboard (image upload, inquiry management)
 - **Step 10:** Deploy to Firebase Hosting
+- **Step 11:** Build Admin Settings Editor
 
 ## 9. Unique Value Additions (Post-MVP)
 

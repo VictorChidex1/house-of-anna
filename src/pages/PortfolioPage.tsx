@@ -9,6 +9,7 @@ import CategoryFilter from "../components/gallery/CategoryFilter";
 import GalleryGrid from "../components/gallery/GalleryGrid";
 import ImageLightbox from "../components/gallery/ImageLightbox";
 import Pagination from "../components/gallery/Pagination";
+import PageSeo from "../components/seo/PageSeo";
 
 const ITEMS_PER_PAGE = 10;
 
@@ -48,6 +49,13 @@ const PortfolioPage: React.FC = () => {
 
   return (
     <div className="min-h-screen py-16 px-4 max-w-7xl mx-auto">
+      <PageSeo
+        title="Portfolio — House of Anna"
+        description="Browse our curated collection of bespoke gowns, bridal wear, corporate styles, and Ankara creations. Each piece tells a story of craftsmanship."
+        path="/portfolio"
+        image="/assets/portfolio8.jpeg"
+        jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://house-of-anna.vercel.app/" }, { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://house-of-anna.vercel.app/portfolio" }] }}
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

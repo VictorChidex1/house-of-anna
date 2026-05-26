@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import GoldDivider from "../components/ui/GoldDivider";
+import PageSeo from "../components/seo/PageSeo";
 
 const SECTIONS = [
   {
@@ -43,6 +44,11 @@ const SECTIONS = [
 const PrivacyPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-cream">
+      <PageSeo
+        title="Privacy Policy — House of Anna"
+        description="Learn how House of Anna handles, protects, and utilizes your personal information."
+        path="/privacy"
+      />
       {/* ───── Hero Section ───── */}
       <section className="relative py-32 bg-brand-navy overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/hero-image.webp')] bg-cover bg-center opacity-10 bg-fixed" />

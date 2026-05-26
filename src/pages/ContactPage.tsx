@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../lib/firebase";
 import GoldDivider from "../components/ui/GoldDivider";
+import PageSeo from "../components/seo/PageSeo";
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -43,6 +44,13 @@ const ContactPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-brand-cream">
+      <PageSeo
+        title="Contact The Atelier — House of Anna"
+        description="Ready to begin your bespoke journey? Reach out to House of Anna's studio in Port Harcourt, Nigeria."
+        path="/contact"
+        image="/assets/logo.webp"
+        jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://house-of-anna.vercel.app/" }, { "@type": "ListItem", position: 2, name: "Contact", item: "https://house-of-anna.vercel.app/contact" }] }}
+      />
       {/* ───── Hero Section ───── */}
       <section className="relative py-32 bg-brand-navy overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/hero-image.webp')] bg-cover bg-center opacity-10 bg-fixed" />

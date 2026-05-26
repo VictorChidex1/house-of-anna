@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import GoldDivider from "../components/ui/GoldDivider";
+import PageSeo from "../components/seo/PageSeo";
 
 const PHILOSOPHY = [
   {
@@ -23,6 +24,13 @@ const PHILOSOPHY = [
 const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-brand-cream">
+      <PageSeo
+        title="About Anna — House of Anna"
+        description="Meet Anna Peter, the visionary behind House of Anna. Discover the story, craft, and passion behind Nigeria's most esteemed tailoring atelier."
+        path="/about"
+        image="/assets/anna.jpg"
+        jsonLd={{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://house-of-anna.vercel.app/" }, { "@type": "ListItem", position: 2, name: "About", item: "https://house-of-anna.vercel.app/about" }] }}
+      />
       {/* ───── Hero Section ───── */}
       <section className="relative py-32 sm:py-40 bg-brand-navy overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/hero-image.webp')] bg-cover bg-center opacity-10 bg-fixed" />
