@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { collection, addDoc, serverTimestamp, query, where, getDocs } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { db } from "../../lib/firebase";
 
 const Footer: React.FC = () => {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "duplicate">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error" | "duplicate"
+  >("idle");
 
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -14,7 +23,10 @@ const Footer: React.FC = () => {
     setStatus("loading");
     try {
       // Check for duplicate email
-      const q = query(collection(db, "subscribers"), where("email", "==", email.toLowerCase().trim()));
+      const q = query(
+        collection(db, "subscribers"),
+        where("email", "==", email.toLowerCase().trim()),
+      );
       const existing = await getDocs(q);
       if (!existing.empty) {
         setStatus("duplicate");
@@ -64,10 +76,7 @@ const Footer: React.FC = () => {
                 Something went wrong. Please try again.
               </p>
             ) : (
-              <form
-                className="flex w-full group"
-                onSubmit={handleSubscribe}
-              >
+              <form className="flex w-full group" onSubmit={handleSubscribe}>
                 <input
                   type="email"
                   placeholder="Enter your email address"
@@ -169,6 +178,12 @@ const Footer: React.FC = () => {
                 WhatsApp
               </a>
               <a
+                href="mailto:Annpeter19@gmail.com"
+                className="hover:text-white hover:translate-x-1 transition-all duration-300 w-fit"
+              >
+                Email
+              </a>
+              <a
                 href="https://www.instagram.com/house_of_anna_/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -177,12 +192,12 @@ const Footer: React.FC = () => {
                 Instagram
               </a>
               <a
-                href="https://twitter.com"
+                href="https://www.tiktok.com/@house_of_anna_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-white hover:translate-x-1 transition-all duration-300 w-fit"
               >
-                X (Twitter)
+                TikTok
               </a>
             </div>
           </div>
