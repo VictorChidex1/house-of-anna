@@ -50,6 +50,18 @@ service cloud.firestore {
       allow delete: if false;
     }
 
+    // ─── SUBSCRIBERS (Newsletter) ────────────────────
+    // Public create (validated). Admin read. No update/delete.
+    match /subscribers/{docId} {
+      allow create: if request.resource.data.keys().hasAll(['email', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 0
+        && request.resource.data.email.matches('^[^@]+@[^@]+\\.[^@]+$')
+        && request.resource.data.createdAt == request.time;
+      allow read: if isAdmin();
+      allow update, delete: if false;
+    }
+
     // ─── SETTINGS ─────────────────────────────────────
     // Public read. Admin write. No delete.
     match /settings/{docId} {

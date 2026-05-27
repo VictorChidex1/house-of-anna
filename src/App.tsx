@@ -15,6 +15,7 @@ const AdminLayout = lazy(() => import("./components/layout/AdminLayout"));
 const AdminLoginPage = lazy(() => import("./pages/AdminLoginPage"));
 const AdminDashboardPage = lazy(() => import("./pages/AdminDashboardPage"));
 const AdminInquiriesPage = lazy(() => import("./pages/AdminInquiriesPage"));
+const AdminSubscribersPage = lazy(() => import("./pages/AdminSubscribersPage"));
 
 const AdminSuspense: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <Suspense fallback={<Spinner className="min-h-screen" />}>{children}</Suspense>
@@ -45,6 +46,7 @@ const App: React.FC = () => {
       >
         <Route index element={<AdminDashboardPage />} />
         <Route path="inquiries" element={<AdminInquiriesPage />} />
+        <Route path="subscribers" element={<AdminSubscribersPage />} />
       </Route>
 
       <Route

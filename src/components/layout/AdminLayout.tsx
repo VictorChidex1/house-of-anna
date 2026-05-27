@@ -7,6 +7,7 @@ import Spinner from "../ui/Spinner";
 const NAV = [
   { label: "Dashboard", to: "/admin" },
   { label: "Inquiries", to: "/admin/inquiries" },
+  { label: "Subscribers", to: "/admin/subscribers" },
 ];
 
 const AdminLayout: React.FC = () => {
