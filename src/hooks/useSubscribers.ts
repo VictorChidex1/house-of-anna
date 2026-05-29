@@ -21,11 +21,11 @@ export function useSubscribers() {
   useEffect(() => {
     const q = query(
       collection(db, "subscribers"),
-      orderBy("createdAt", "desc"),
+      orderBy("createdAt", "desc")
     );
     const unsub = onSnapshot(q, (snap) => {
       setSubscribers(
-        snap.docs.map((d) => ({ id: d.id, ...d.data() }) as Subscriber),
+        snap.docs.map((d) => ({ id: d.id, ...d.data() } as Subscriber))
       );
       setLoading(false);
     });

@@ -1,9 +1,9 @@
 export type GalleryCategory =
-  | "crepe"
-  | "vintage"
-  | "silk"
+  | "bespoke-gowns"
+  | "blazers"
   | "ankara"
-  | "corporate";
+  | "corporate"
+  | "bridal-wedding";
 
 export type InquiryStatus = "new" | "contacted" | "booked";
 

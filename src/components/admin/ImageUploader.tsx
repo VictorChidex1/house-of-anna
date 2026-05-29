@@ -5,11 +5,11 @@ import { uploadImage, generateThumbnail } from "../../services/storage";
 import type { GalleryCategory } from "../../types";
 
 const CATEGORIES: { label: string; value: GalleryCategory }[] = [
-  { label: "Crepe", value: "crepe" },
-  { label: "Vintage", value: "vintage" },
-  { label: "Silk", value: "silk" },
+  { label: "Bespoke Gowns", value: "bespoke-gowns" },
+  { label: "Blazers", value: "blazers" },
   { label: "Ankara", value: "ankara" },
   { label: "Corporate", value: "corporate" },
+  { label: "Bridal & Wedding Gown", value: "bridal-wedding" },
 ];
 
 const ImageUploader: React.FC = () => {

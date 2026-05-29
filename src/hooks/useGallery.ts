@@ -8,7 +8,7 @@ const SEED_IMAGES: GalleryItem[] = [
     id: "seed-1",
     imageUrl: "/assets/portfolio1.jpg",
     thumbnailUrl: "/assets/portfolio1.jpg",
-    category: "crepe" as GalleryCategory,
+    category: "blazers" as GalleryCategory,
     title: "The 'Moremi' Crimson Blazer Set",
     description:
       "A bold crepe blazer set in deep crimson — tailored for power and elegance. Named after the legendary Yoruba queen who led with courage and style.",
@@ -19,7 +19,7 @@ const SEED_IMAGES: GalleryItem[] = [
     id: "seed-2",
     imageUrl: "/assets/portfolio2.jpg",
     thumbnailUrl: "/assets/portfolio2.jpg",
-    category: "silk" as GalleryCategory,
+    category: "bespoke-gowns" as GalleryCategory,
     title: "The 'Oyin' Sculpted Asymmetric Dress",
     description:
       "Liquid silk meets architectural form. This honey-hued asymmetric dress drapes like poetry — soft, luminous, and effortlessly commanding.",
@@ -41,7 +41,7 @@ const SEED_IMAGES: GalleryItem[] = [
     id: "seed-4",
     imageUrl: "/assets/portfolio4.jpg",
     thumbnailUrl: "/assets/portfolio4.jpg",
-    category: "vintage" as GalleryCategory,
+    category: "ankara" as GalleryCategory,
     title: "The 'Ife' Vintage Lace Gown",
     description:
       "A timeless masterpiece in vintage lace, inspired by the ancient city of Ife — where art and royalty converge. Designed for the woman who carries tradition with grace.",
