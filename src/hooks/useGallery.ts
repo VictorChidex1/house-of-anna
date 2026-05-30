@@ -67,7 +67,10 @@ export function useGallery() {
     return unsub;
   }, []);
 
-  const all = [...SEED_IMAGES, ...firestoreItems];
+  const sorted = [...firestoreItems].sort(
+    (a, b) => (b.createdAt?.seconds ?? 0) - (a.createdAt?.seconds ?? 0),
+  );
+  const all = [...SEED_IMAGES, ...sorted];
 
   return { items: all, seedCount: SEED_IMAGES.length, loading };
 }
